@@ -14,6 +14,15 @@ $(document).keydown(function() {
     }//end if
 });
 
+$(".play").on("click", function(event){
+    if(started === false){
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+    }//end if
+});
+
+
 //show sequence
 function nextSequence(){
     userClickedPattern = [];
@@ -69,7 +78,7 @@ function checkAnswer(currentLevel){
             $("body").removeClass("game-over");
         }, 200); //remove class after 0.2seconds
 
-        $("h1").text("Game Over, Press Any Key to Restart");
+        $("h1").text("Game Over, Press Any Key or Play to Restart");
         startOver();
     }
 }
